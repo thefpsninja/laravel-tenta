@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,7 +24,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $currentUserName = Auth::user()->name;
+        $currentUserAge = Auth::user()->age;
+        return view('home', [
+            'currentUserName' => $currentUserName,
+            'currentUserAge' => $currentUserAge,
+        ]);
     }
 
 }
