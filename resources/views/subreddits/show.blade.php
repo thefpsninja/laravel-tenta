@@ -14,13 +14,17 @@
         Create a post
         <form action="/posts" method="POST">
             @csrf
+            Title
             <input type="text" name="title">
+            Content
+            <input type="text" name="content">
             <input type="hidden" name="subreddits_id" value="{{ $subreddits->id }}">
             <input type="submit" value="">
+    <div class="links">
         @foreach ($posts as $post)
-        <h1>{{ $post->title }}</h1>
-        <h2>{{ $post->slug }}</h2>
+        <a href="post/{{ $post->slug }}">{{ $post->title }}</a>
         @endforeach
+    </div>
 
     </body>
     </html>

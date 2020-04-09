@@ -51,13 +51,14 @@ class SubredditsController extends Controller
 
         $post->save();
 
-        return redirect('/');
+        return redirect('/subreddits');
     }
     public function storePost(Request $request)
     {
         $post = new Post;
 
         $post->title = request('title');
+        $post->content = request('content');
         $post->slug = Str::slug(request('title'));
         $post->subreddits_id = request('subreddits_id');
         $post->user_id = Auth::id();

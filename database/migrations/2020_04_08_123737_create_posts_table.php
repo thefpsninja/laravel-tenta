@@ -17,6 +17,7 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('title');
+            $table->string('content');
             $table->string('slug');
             $table->foreignId('subreddits_id')->references('id')->on('subreddits');
             $table->foreignId('user_id')->references('id')->on('users');
