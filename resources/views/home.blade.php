@@ -23,7 +23,12 @@
                     <h1> Age is good</h1>
                     @endif
 
-                </div>
+                </div> 
+            </div>
+            <div class="links">
+                {{-- Woop Woop Lazy Programing --}}
+                <br><br><br>
+                <a href="/subreddits">Subreddits!</a>
             </div>
         </div>
     </div>
