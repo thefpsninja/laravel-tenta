@@ -8,7 +8,8 @@ class Post extends Model
 {
     protected $fillable = [
         'title',
-        'slug'
+        'slug',
+        'subreddits_id',
     ];
 
     public function user(){

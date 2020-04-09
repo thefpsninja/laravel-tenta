@@ -44,6 +44,9 @@ class PostController extends Controller
 
         $post->title = request('title');
         $post->slug = Str::slug(request('title'));
+        
+        // Subreddits id vill inte skickas.....
+        $post->subreddits_id = request('subreddits_id');
 
         $post->save();
 
