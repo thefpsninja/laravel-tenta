@@ -15,7 +15,7 @@
         <form action="/posts" method="POST">
             @csrf
             <input type="text" name="title">
-            <input type="text" name="subreddits_id" value="{{ $subreddits->id }}">
+            <input type="hidden" name="subreddits_id" value="{{ $subreddits->id }}">
             <input type="submit" value="">
         @foreach ($posts as $post)
         <h1>{{ $post->title }}</h1>

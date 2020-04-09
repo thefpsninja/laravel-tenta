@@ -24,13 +24,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/subreddits', 'SubredditsController@index')->name('subreddits')->middleware('auth');
-Route::get('/subreddits/create', 'SubredditsController@create');
-Route::get('/subreddits/{slug}', 'SubredditsController@show');
-Route::post('/subreddits', 'SubredditsController@store');
-
-
-Route::get('/posts', 'PostController@index')->name('posts')->middleware('auth');
-Route::get('/posts/create', 'PostController@create');
-Route::get('/posts/{slug}', 'PostController@show');
-Route::post('/posts', 'PostController@store');
+Route::get('/subreddits/create', 'SubredditsController@create')->middleware('auth');;
+Route::get('/subreddits/{slug}', 'SubredditsController@show')->middleware('auth');;
+Route::post('/subreddits', 'SubredditsController@store')->middleware('auth');;
+Route::post('/posts', 'SubredditsController@storePost')->middleware('auth');;
 

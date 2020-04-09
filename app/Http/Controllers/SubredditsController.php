@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Subreddits;
+use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -52,6 +53,19 @@ class SubredditsController extends Controller
 
         return redirect('/');
     }
+    public function storePost(Request $request)
+    {
+        $post = new Post;
+
+        $post->title = request('title');
+        $post->slug = Str::slug(request('title'));
+        $post->subreddits_id = request('subreddits_id');
+        $post->user_id = Auth::id();
+
+        $post->save();
+
+        return redirect('/subreddits');
+    }
 
     /**
      * Display the specified resource.
@@ -62,7 +76,7 @@ class SubredditsController extends Controller
     public function show($slug)
     {
         $subreddits = Subreddits::where('slug', $slug)->firstOrFail();
-        $posts = Subreddits::find(1)->post;
+        $posts = Subreddits::find($subreddits->id)->post;
 
         return view('subreddits.show', [
             'subreddits' => $subreddits,
