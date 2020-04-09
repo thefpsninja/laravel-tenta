@@ -1,3 +1,4 @@
+{{--  Här funkar CSS --}}
 @extends('layouts.app')
 
 @section('content')

@@ -1,3 +1,4 @@
+{{-- Här funkar inte css t.ex --}}
 @extends('layouts.app')
 
 @section('content')
