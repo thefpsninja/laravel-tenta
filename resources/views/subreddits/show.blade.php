@@ -11,6 +11,12 @@
     </head>
     <body>
         Welcome to "{{ $subreddits->title }}"
+        
+        @foreach ($posts as $post)
+        <h1>{{ $post->title }}</h1>
+        <h2>{{ $post->slug }}</h2>
+        @endforeach
+
     </body>
     </html>
 @endsection

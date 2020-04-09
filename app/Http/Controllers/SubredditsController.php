@@ -62,9 +62,11 @@ class SubredditsController extends Controller
     public function show($slug)
     {
         $subreddits = Subreddits::where('slug', $slug)->firstOrFail();
+        $posts = Subreddits::find(1)->post;
 
         return view('subreddits.show', [
             'subreddits' => $subreddits,
+            'posts' => $posts,
         ]);
     }
 
