@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePhonesTable extends Migration
+class CreateSubredditsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,13 @@ class CreatePhonesTable extends Migration
      */
     public function up()
     {
-        Schema::create('phones', function (Blueprint $table) {
+        Schema::create('subreddits', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('Number');
-            $table->integer('user_id')->unsigned();
-        });
-        Schema::table('phones', function (blueprint $table) {
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->string('title');
+            $table->string('desc');
+            $table->string('slug');
+            $table->foreignId('user_id')->references('id')->on('users');
         });
     }
 
@@ -31,6 +30,6 @@ class CreatePhonesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('phones');
+        Schema::dropIfExists('subreddits');
     }
 }
