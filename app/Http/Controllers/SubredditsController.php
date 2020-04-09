@@ -59,9 +59,13 @@ class SubredditsController extends Controller
      * @param  \App\Subreddits  $subreddits
      * @return \Illuminate\Http\Response
      */
-    public function show(Subreddits $subreddits)
+    public function show($slug)
     {
-        //
+        $subreddits = Subreddits::where('slug', $slug)->firstOrFail();
+
+        return view('subreddits.show', [
+            'subreddits' => $subreddits,
+        ]);
     }
 
     /**
